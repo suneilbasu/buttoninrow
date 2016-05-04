@@ -1,0 +1,21 @@
+<h1>List of Users</h1>
+<p> <%= params.inspect %></p>
+<table>
+  <tr>
+    <th>first name </th>
+    <th>surname </th>
+    <th>email </th>
+    <th>button </th>
+  </tr>
+  <% @users.each do |i| %>
+  <tr>
+    <td><%= i.first_name %> </td>
+    <td><%= i.last_name %> </td>
+    <td><%= i.email %> </td>
+    <td>
+      <%= form_for (User.edit) do |j| %>
+      <%= j.text_field :first_name %>
+      <%= j.submit 'submit'%>
+      <% end %>
+  </tr>
+  <% end %>
